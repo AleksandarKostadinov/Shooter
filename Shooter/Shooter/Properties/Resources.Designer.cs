@@ -63,9 +63,41 @@ namespace Shooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap apocalypse_technics_fire_fantasy_apocalyptic_destruction_ruins_scifi_robot_battle_wallpaper_1 {
+            get {
+                object obj = ResourceManager.GetObject("apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle" +
+                        "-wallpaper-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap apocalypse_technics_fire_fantasy_apocalyptic_destruction_ruins_scifi_robot_battle_wallpaper_11 {
+            get {
+                object obj = ResourceManager.GetObject("apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle" +
+                        "-wallpaper-11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Background {
             get {
                 object obj = ResourceManager.GetObject("Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot {
+            get {
+                object obj = ResourceManager.GetObject("Robot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

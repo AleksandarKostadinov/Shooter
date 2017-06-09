@@ -18,9 +18,12 @@ namespace Shooter
         int _cursX = 0;
         int _cursY = 0;
 #endif
+        CRobot _robot;
+
         public WildShooter()
         {
             InitializeComponent();
+            _robot = new CRobot() { Left = 10, Top = 200 };
         }
 
         private void timerGameLoop_Tick(object sender, EventArgs e)
@@ -31,6 +34,7 @@ namespace Shooter
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics dc = e.Graphics;
+            _robot.DrawImage(dc);
 #if My_Debug
             TextFormatFlags flags = TextFormatFlags.Left | TextFormatFlags.EndEllipsis;
             Font _font = new System.Drawing.Font("Stencil", 12, FontStyle.Regular);

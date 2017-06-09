@@ -41,11 +41,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Shooter.Properties.Resources.Background;
-            this.ClientSize = new System.Drawing.Size(584, 399);
+            this.BackgroundImage = global::Shooter.Properties.Resources.apocalypse_technics_fire_fantasy_apocalyptic_destruction_ruins_scifi_robot_battle_wallpaper_1;
+            this.ClientSize = new System.Drawing.Size(1234, 642);
             this.DoubleBuffered = true;
             this.Name = "WildShooter";
             this.Text = "Wild Shooter";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WildShooter_MouseMove);
             this.ResumeLayout(false);
 

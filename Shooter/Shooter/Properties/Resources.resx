@@ -118,7 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartoon-hills-hi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

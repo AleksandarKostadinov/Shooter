@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CImageBase.cs" />
+    <Compile Include="CRobot.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,7 +81,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.jpg" />
+    <None Include="Resources\Robot1.png" />
+    <None Include="Resources\Robot.png" />
+    <None Include="Resources\robot.bmp" />
+    <None Include="Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cartoon-hills-hi.png" />
   </ItemGroup>
