@@ -1,6 +1,6 @@
 ﻿namespace Shooter
 {
-    partial class Form1
+    partial class WildShooter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timerGameLoop = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // Form1
+            // timerGameLoop
+            // 
+            this.timerGameLoop.Tick += new System.EventHandler(this.timerGameLoop_Tick);
+            // 
+            // WildShooter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Shooter.Properties.Resources.Background;
             this.ClientSize = new System.Drawing.Size(584, 399);
-            this.Name = "Form1";
+            this.Name = "WildShooter";
             this.Text = "Wild Shooter";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timerGameLoop;
     }
 }
 

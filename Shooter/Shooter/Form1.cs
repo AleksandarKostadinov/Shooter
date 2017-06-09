@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace Shooter
 {
-    public partial class Form1 : Form
+    public partial class WildShooter : Form
     {
-        public Form1()
+        public WildShooter()
         {
             InitializeComponent();
+        }
+
+        private void timerGameLoop_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Graphics dc = e.Graphics;
+
+            base.OnPaint(e);
         }
     }
 }
