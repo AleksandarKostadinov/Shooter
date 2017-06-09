@@ -44,6 +44,7 @@
             this.ClientSize = new System.Drawing.Size(584, 399);
             this.Name = "WildShooter";
             this.Text = "Wild Shooter";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WildShooter_MouseMove);
             this.ResumeLayout(false);
 
         }
