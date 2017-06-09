@@ -13,6 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -42,6 +43,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Shooter.Properties.Resources.Background;
             this.ClientSize = new System.Drawing.Size(584, 399);
+            this.DoubleBuffered = true;
             this.Name = "WildShooter";
             this.Text = "Wild Shooter";
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WildShooter_MouseMove);
