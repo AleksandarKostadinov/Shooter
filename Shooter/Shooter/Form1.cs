@@ -19,11 +19,17 @@ namespace Shooter
         int _cursY = 0;
 #endif
         CRobot _robot;
+        CSplat _splat;
+        CSign _sign;
+        CScoreFrame _scoreFrame;
 
         public WildShooter()
         {
             InitializeComponent();
-            _robot = new CRobot() { Left = 10, Top = 200 };
+            _scoreFrame = new CScoreFrame() { Left = 10, Top = 10 };
+            _sign = new CSign() {Left=1050,Top=10 };
+            _robot = new CRobot() { Left = 630, Top = 389 };
+            _splat = new CSplat();
         }
 
         private void timerGameLoop_Tick(object sender, EventArgs e)
@@ -34,6 +40,9 @@ namespace Shooter
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics dc = e.Graphics;
+            _sign.DrawImage(dc);
+            _scoreFrame.DrawImage(dc);
+
             _robot.DrawImage(dc);
 #if My_Debug
             TextFormatFlags flags = TextFormatFlags.Left | TextFormatFlags.EndEllipsis;

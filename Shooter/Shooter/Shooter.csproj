@@ -47,6 +47,9 @@
   <ItemGroup>
     <Compile Include="CImageBase.cs" />
     <Compile Include="CRobot.cs" />
+    <Compile Include="CScoreFrame.cs" />
+    <Compile Include="CSign.cs" />
+    <Compile Include="CSplat.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.jpg" />
+    <None Include="Resources\gun.png" />
+    <None Include="Resources\gameMenu.png" />
+    <None Include="Resources\EL.png" />
+    <None Include="Resources\ScoreBar.png" />
     <None Include="Resources\Robot1.png" />
     <None Include="Resources\Robot.png" />
     <None Include="Resources\robot.bmp" />

@@ -16,7 +16,7 @@ namespace Shooter
         private int Y;
 
         public int Left { get { return X; }set { X = value; } }
-        public int Top { get { return X; } set { X = value; } }
+        public int Top { get { return Y; } set { Y = value; } }
 
         public CImageBase(Bitmap _resource)
         {
