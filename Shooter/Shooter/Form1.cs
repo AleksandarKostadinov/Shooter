@@ -1,4 +1,4 @@
-﻿//#define My_Debug
+﻿#define My_Debug
 
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shooter.Properties;
 
 namespace Shooter
 {
@@ -26,6 +27,10 @@ namespace Shooter
         public WildShooter()
         {
             InitializeComponent();
+
+            Bitmap b = new Bitmap(Resources.gun);
+            this.Cursor = CustomCursor.CreateCursor(b, b.Height / 2, b.Width / 2);
+
             _scoreFrame = new CScoreFrame() { Left = 10, Top = 10 };
             _sign = new CSign() {Left=1050,Top=10 };
             _robot = new CRobot() { Left = 630, Top = 389 };
@@ -60,6 +65,11 @@ namespace Shooter
             _cursY = e.Y;
 #endif
             this.Refresh();
+        }
+
+        private void WildShooter_MouseClick(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 }

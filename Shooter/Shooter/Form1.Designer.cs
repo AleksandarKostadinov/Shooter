@@ -47,6 +47,7 @@
             this.Name = "WildShooter";
             this.Text = "Wild Shooter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.WildShooter_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WildShooter_MouseMove);
             this.ResumeLayout(false);
 
