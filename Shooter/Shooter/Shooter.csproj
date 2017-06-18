@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.jpg" />
+    <None Include="Resources\Star Wars Weapon Sound Effects.wav" />
     <None Include="Resources\gun.png" />
     <None Include="Resources\gameMenu.png" />
     <None Include="Resources\EL.png" />

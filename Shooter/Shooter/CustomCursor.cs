@@ -11,11 +11,11 @@ namespace Shooter
 {
     public struct IconInfo
     {
-        public bool FIcon;
-        public int XHotSpot;
-        public int YHotspot;
-        public IntPtr HbmMask;
-        public IntPtr HbmColor;
+        public bool fIcon;
+        public int xHotSpot;
+        public int yHotspot;
+        public IntPtr hbmMask;
+        public IntPtr hbmColor;
     }
 
     class CustomCursor
@@ -32,9 +32,9 @@ namespace Shooter
             IntPtr ptr = bmp.GetHicon();
             IconInfo tmp = new IconInfo();
             GetIconInfo(ptr, ref tmp);
-            tmp.XHotSpot = xHotspot;
-            tmp.YHotspot = yHotspot;
-            tmp.FIcon = false;
+            tmp.xHotSpot = xHotspot;
+            tmp.yHotspot = yHotspot;
+            tmp.fIcon = false;
             ptr = CreateIconIndirect(ref tmp);
             return new System.Windows.Forms.Cursor(ptr);
         }
