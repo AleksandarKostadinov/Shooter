@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shooter
+﻿namespace Shooter
 {
+    using System;
+    using System.Drawing;
+    using System.Runtime.InteropServices;
+
     public struct IconInfo
     {
         public bool fIcon;
@@ -31,11 +26,15 @@ namespace Shooter
         {
             IntPtr ptr = bmp.GetHicon();
             IconInfo tmp = new IconInfo();
+
             GetIconInfo(ptr, ref tmp);
+
             tmp.xHotSpot = xHotspot;
             tmp.yHotspot = yHotspot;
             tmp.fIcon = false;
+
             ptr = CreateIconIndirect(ref tmp);
+
             return new System.Windows.Forms.Cursor(ptr);
         }
     }

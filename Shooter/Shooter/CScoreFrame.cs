@@ -1,12 +1,7 @@
-﻿using Shooter.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shooter
+﻿namespace Shooter
 {
+    using Shooter.Properties;
+
     class CScoreFrame : CImageBase
     {
         public CScoreFrame() : base(Resources.ScoreBar)

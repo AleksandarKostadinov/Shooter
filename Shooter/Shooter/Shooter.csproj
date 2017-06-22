@@ -57,21 +57,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -86,19 +86,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.jpg" />
     <None Include="Resources\Star Wars Weapon Sound Effects.wav" />
     <None Include="Resources\gun.png" />
     <None Include="Resources\gameMenu.png" />
     <None Include="Resources\EL.png" />
     <None Include="Resources\ScoreBar.png" />
-    <None Include="Resources\Robot1.png" />
     <None Include="Resources\Robot.png" />
     <None Include="Resources\robot.bmp" />
-    <None Include="Resources\apocalypse-technics-fire-fantasy-apocalyptic-destruction-ruins-scifi-robot-battle-wallpaper-1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cartoon-hills-hi.png" />
+    <Content Include="Resources\Background.png" />
+    <Content Include="Resources\Robot1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

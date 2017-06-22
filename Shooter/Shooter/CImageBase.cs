@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shooter
+﻿namespace Shooter
 {
+    using System;
+    using System.Drawing;
+
     class CImageBase : IDisposable
     {
         bool disposed = false;
@@ -15,7 +11,7 @@ namespace Shooter
         private int X;
         private int Y;
 
-        public int Left { get { return X; }set { X = value; } }
+        public int Left { get { return X; } set { X = value; } }
         public int Top { get { return Y; } set { Y = value; } }
 
         public CImageBase(Bitmap _resource)

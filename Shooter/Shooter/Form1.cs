@@ -1,13 +1,7 @@
 ﻿#define My_Debug
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shooter.Properties;
 using System.Media;
@@ -32,6 +26,7 @@ namespace Shooter
         CSign _sign;
         CScoreFrame _scoreFrame;
         Random rnd = new Random();
+        SoundPlayer simpleSound = new SoundPlayer(Resources.LazerGun);
 
         public WildShooter()
         {
@@ -63,6 +58,7 @@ namespace Shooter
                 }
                 _splatTime++;
             }
+
             _gameFrame++;
             this.Refresh();
 
@@ -70,8 +66,8 @@ namespace Shooter
         private void UpdateRobot()
         {
             _robot.Update(
-                rnd.Next(Resources.Robot.Width, 1200),
-                rnd.Next(330, 600));
+                rnd.Next(Resources.Robot.Width, this.Width - Resources.Robot.Width),
+                rnd.Next(this.Height / 2, this.Height - Resources.Robot.Height));
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -123,27 +119,29 @@ namespace Shooter
             }
             else
             {
-                if (_robot.Hit(e.X, e.Y))
+                if (timerGameLoop.Enabled)
                 {
-                    splat = true;
-                    _splat.Left = _robot.Left - Resources.EL.Width / 3;
-                    _splat.Top = _robot.Top - Resources.EL.Height / 3;
-                    _hit++;
+                    if (_robot.Hit(e.X, e.Y))
+                    {
+                        splat = true;
+                        _splat.Left = _robot.Left - Resources.EL.Width / 3;
+                        _splat.Top = _robot.Top - Resources.EL.Height / 3;
+                        _hit++;
+                    }
+                    else
+                    {
+                        _misses++;
+                    }
+                    _totalShots = _hit + _misses;
+                    _averageHits = (double)_hit / _totalShots * 100.0;
                 }
-                else
-                {
-                _misses++;
-
-                }
-                _totalShots = _hit + _misses;
-                _averageHits = (double)_hit /(double) _totalShots*100.0;
             }
-           LazerGun();
 
+           LazerGun();
         }
+
         private void LazerGun()
         {
-            SoundPlayer simpleSound = new SoundPlayer(Resources.LazerGun);
             simpleSound.Play();
         }
     }

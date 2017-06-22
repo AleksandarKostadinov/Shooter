@@ -1,11 +1,17 @@
 ﻿namespace Shooter
 {
+    using System;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using Shooter.Properties;
+
     partial class WildShooter
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,32 +35,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.timerGameLoop = new System.Windows.Forms.Timer(this.components);
+            this.components = new Container();
+            this.timerGameLoop = new Timer(this.components);
             this.SuspendLayout();
             // 
             // timerGameLoop
             // 
-            this.timerGameLoop.Tick += new System.EventHandler(this.timerGameLoop_Tick);
+            this.timerGameLoop.Tick += new EventHandler(this.timerGameLoop_Tick);
             // 
             // WildShooter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Shooter.Properties.Resources.apocalypse_technics_fire_fantasy_apocalyptic_destruction_ruins_scifi_robot_battle_wallpaper_1;
-            this.ClientSize = new System.Drawing.Size(1234, 642);
+            this.AutoScaleDimensions = new SizeF(6F, 13F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.BackgroundImage = Resources.Background;
+            this.ClientSize = new Size(1234, 642);
             this.DoubleBuffered = true;
             this.Name = "WildShooter";
             this.Text = "Wild Shooter";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.WildShooter_MouseClick);           
+            this.WindowState = FormWindowState.Maximized;
+            this.MouseClick += new MouseEventHandler(this.WildShooter_MouseClick);           
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer timerGameLoop;
+        private Timer timerGameLoop;
     }
 }
 
