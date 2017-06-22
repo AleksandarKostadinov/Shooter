@@ -117,7 +117,12 @@ namespace Shooter
             else if (e.X > 1167 && e.X < 1239 && e.Y > 100 && e.Y < 120)
             {
                 timerGameLoop.Stop();
-                Application.Restart();
+                _hit = 0;
+                _misses = 0;
+                _totalShots = 0;
+                _averageHits = 0;
+                _skillLevel = "Novice";
+                timerGameLoop.Start();
             }
             else if (e.X > 1167 && e.X < 1239 && e.Y > 130 && e.Y < 150)
             {
