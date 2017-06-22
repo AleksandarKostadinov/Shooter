@@ -10,8 +10,8 @@ namespace Shooter
 {
     public partial class WildShooter : Form
     {
-        const int FrameNum = 2;
-        const int SplatNum = 7;
+        int FrameNum = 8;
+        int SplatNum = 3;
         bool splat = false;
         int _splatTime = 0;
         int _gameFrame = 0;
@@ -20,6 +20,7 @@ namespace Shooter
         int _misses = 0;
         int _totalShots = 0;
         double _averageHits = 0;
+        string _skillLevel = "Novice";
 
         CRobot _robot;
         CSplat _splat;
@@ -36,21 +37,21 @@ namespace Shooter
             this.Cursor = CustomCursor.CreateCursor(b, b.Height / 2, b.Width / 2);
 
             _scoreFrame = new CScoreFrame() { Left = 10, Top = 10 };
-            _sign = new CSign() {Left=1050,Top=10 };
+            _sign = new CSign() { Left = 1050, Top = 10 };
             _robot = new CRobot() { Left = 630, Top = 389 };
             _splat = new CSplat();
         }
 
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
-            if (_gameFrame>=SplatNum)
+            if (_gameFrame >= FrameNum)
             {
                 UpdateRobot();
                 _gameFrame = 0;
             }
             if (splat)
             {
-                if (_splatTime >= FrameNum)
+                if (_splatTime >= SplatNum)
                 {
                     splat = false;
                     _splatTime = 0;
@@ -61,8 +62,8 @@ namespace Shooter
 
             _gameFrame++;
             this.Refresh();
-
         }
+
         private void UpdateRobot()
         {
             _robot.Update(
@@ -73,7 +74,7 @@ namespace Shooter
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics dc = e.Graphics;
-            if (splat == true)
+            if (splat)
             {
                 _splat.DrawImage(dc);
             }
@@ -81,25 +82,31 @@ namespace Shooter
             {
                 _robot.DrawImage(dc);
             }
-            
+
             _sign.DrawImage(dc);
             _scoreFrame.DrawImage(dc);
 
-
-            //put score on the screen
+            //Put score on the screen
             TextFormatFlags flags = TextFormatFlags.Left;
-            Font _font = new System.Drawing.Font("Stencil", 32, FontStyle.Regular);
+
+            Font _font = new Font("Stencil", 22, FontStyle.Regular);
+            Font _fontSkill = new Font("Stencil", 24, FontStyle.Regular);
+
             TextRenderer.DrawText(e.Graphics, "Shots:" + _totalShots.ToString(), _font, new Rectangle(60, 52, 320, 200), SystemColors.ControlText, flags);
-            TextRenderer.DrawText(e.Graphics, "Hits:" + _hit.ToString(), _font, new Rectangle(60, 92, 320, 200), SystemColors.ControlText, flags);
-            TextRenderer.DrawText(e.Graphics, "Misses:" + _misses.ToString(), _font, new Rectangle(60, 132, 320, 200), SystemColors.ControlText, flags);
-            TextRenderer.DrawText(e.Graphics, "Avg:" + _averageHits.ToString("F2")+"%", _font, new Rectangle(60, 172, 320, 200), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Hits:" + _hit.ToString(), _font, new Rectangle(60, 82, 320, 200), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Misses:" + _misses.ToString(), _font, new Rectangle(60, 112, 320, 200), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Avg:" + _averageHits.ToString("F2") + "%", _font, new Rectangle(60, 142, 320, 200), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Skill: " + _skillLevel, _fontSkill, new Rectangle(60, 182, 320, 200), SystemColors.ControlText, flags);
+
             base.OnPaint(e);
         }
 
 
         private void WildShooter_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.X>1167 && e.X<1239 && e.Y > 30 && e.Y < 50)
+            LazerGun();
+
+            if (e.X > 1167 && e.X < 1239 && e.Y > 30 && e.Y < 50)
             {
                 timerGameLoop.Start();
             }
@@ -119,30 +126,73 @@ namespace Shooter
             }
             else
             {
-                if (timerGameLoop.Enabled)
+                // Does not count shots if the game is stoped
+                if (!timerGameLoop.Enabled)
                 {
-                    if (_robot.Hit(e.X, e.Y))
-                    {
-                        splat = true;
-                        _splat.Left = _robot.Left - Resources.EL.Width / 3;
-                        _splat.Top = _robot.Top - Resources.EL.Height / 3;
-                        _hit++;
-                    }
-                    else
-                    {
-                        _misses++;
-                    }
-                    _totalShots = _hit + _misses;
-                    _averageHits = (double)_hit / _totalShots * 100.0;
+                    return;
                 }
-            }
 
-           LazerGun();
+                if (_robot.Hit(e.X, e.Y))
+                {
+                    splat = true;
+                    _splat.Left = _robot.Left - Resources.EL.Width / 5;
+                    _splat.Top = _robot.Top - Resources.EL.Height / 5;
+                    _hit++;
+                }
+                else
+                {
+                    _misses++;
+                }
+
+                _totalShots = _hit + _misses;
+                _averageHits = (double)_hit / _totalShots * 100.0;
+
+                UpdateSkillLevel();
+            }
         }
 
         private void LazerGun()
         {
             simpleSound.Play();
+        }
+
+        private void UpdateSkillLevel()
+        {
+            if (_totalShots < 15)
+            {
+                return;
+            }
+
+            if (_averageHits > 60)
+            {
+                _skillLevel = "God";
+                FrameNum = 5;
+            }
+            else if (_averageHits == 0)
+            {
+                _skillLevel = "Master";
+                FrameNum = 6;
+            }
+            else if (_averageHits >= 40)
+            {
+                _skillLevel = "Pro";
+                FrameNum = 7;
+            }
+            else if (_averageHits >= 30)
+            {
+                _skillLevel = "Girl";
+                FrameNum = 8;
+            }
+            else if (_averageHits >= 20)
+            {
+                _skillLevel = "Noob";
+                FrameNum = 9;
+            }
+            else
+            {
+                _skillLevel = "Bot";
+                FrameNum = 10;
+            }
         }
     }
 }
