@@ -168,7 +168,7 @@ namespace Shooter
                 _skillLevel = "God";
                 FrameNum = 5;
             }
-            else if (_averageHits == 0)
+            else if (_averageHits >= 50)
             {
                 _skillLevel = "Master";
                 FrameNum = 6;
